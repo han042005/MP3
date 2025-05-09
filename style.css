@@ -1,0 +1,148 @@
+﻿
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url('background.webp'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+}
+
+
+.overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+
+.rectangle {
+    background-color: rgba(230, 220, 255, 0.85);
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.song-title {
+    background-color: #cb4cfb;
+    border: 4px solid black;
+    padding: 20px 80px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    position: relative;
+    border-radius: 12px;
+    box-shadow: inset -4px -4px 0px 0px #ffffff, inset 4px 4px 0px 0px #000000;
+    text-align: center;
+    color: white;
+}
+
+
+.image-frame {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 450px;
+}
+
+    .image-frame img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 30px;
+        transition: transform 0.6s ease, opacity 0.6s ease;
+        opacity: 1;
+        z-index: 1;
+    }
+.slide-left {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.slide-right {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.slide-in {
+    transform: translateX(0%);
+    opacity: 1;
+}
+.slide-out-right {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.slide-in-left {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+
+.control-panel {
+    background-color: rgb(230, 220, 255, 0.00);
+    padding: 5px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+
+.control-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 80px; 
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .control-button img {
+        width: 150px;
+        height: 150px;
+        object-fit: contain;
+    }
+    
+    .next-button img {
+        width: 130px; 
+        height: 130px;
+    }
+    .prev-button img{
+        width: 110px;
+        height: 110px;
+    }
+
+.control-button:hover {
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+}
+.song-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 15px;
+}
+    .song-title.fade {
+        opacity: 0;
+        transition: opacity 0.6s ease;
+    }
+
+    .song-title.fade-in {
+        opacity: 1;
+    }
+
+
+
+

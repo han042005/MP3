@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giao diện bài hát</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="overlay">
+        <div class="rectangle">
+
+            <!-- Nút tên bài hát -->
+            <div class="song-title">
+                Kawaikute Gomen
+            </div>
+
+            <!-- Khung hình ảnh -->
+            <div class="image-frame">
+                <img src="khung.gif" alt="Hình ảnh" id="song-image">
+            </div>
+
+            <!-- Khung điều khiển -->
+            <div class="control-panel">
+                <button class="control-button prev-button">
+                    <img src="prev.png" alt="Prev">
+                </button>
+                <button class="control-button" id="play-button">
+                    <img src="play.png" alt="Play" id="play-icon">
+                </button>
+                <button class="control-button next-button">
+                    <img src="next.png" alt="Next">
+                </button>
+            </div>
+
+        </div>
+    </div>
+    <audio id="audio-player" src="Kawaikute Gomen.mp3"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
