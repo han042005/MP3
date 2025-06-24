@@ -28,7 +28,79 @@ const songs = [
         title: 'Yoru Ni Kakeru',
         audioSrc: 'yoru ni kakeru.mp3',
         imageSrc: 'Khung3.gif'
-    }
+    },
+    {
+        title: 'Has Ever',
+        audioSrc: 'Từng.mp3',
+        imageSrc: 'khung4.gif'
+    },
+    {
+        title: 'Sinking Town',
+        audioSrc: 'Sinking town.mp3',
+        imageSrc: 'khung15.gif'
+    },
+    {
+        title: 'Moshi Moshi',
+        audioSrc: 'Moshi Moshi.mp3',
+        imageSrc: 'khung13.gif'
+    },
+    {
+    title: 'Em Xinh Em Blink',
+        audioSrc: 'Em xinh em blink.mp3',
+        imageSrc: 'khung5.gif'
+    },
+    {
+    title: 'The Lost Kid',
+        audioSrc: 'the lost kid.mp3',
+        imageSrc: 'khung8.gif'
+    },
+    {
+    title: 'Think About You',
+        audioSrc: 'Think about you.mp3',
+        imageSrc: 'khung6.gif'
+    },
+    {
+    title: 'Tiny Love',
+        audioSrc: 'tiny love.mp3',
+        imageSrc: 'khung20.gif'
+    },
+    {
+    title: 'Heart on the Table',
+        audioSrc: 'đặt trái tim lên bàn.mp3',
+        imageSrc: 'khung14.gif'
+    },
+    {
+    title: 'Tick-Tack',
+        audioSrc: 'Tick-Tack.mp3',
+        imageSrc: 'khung22.gif'
+    },
+    {
+    title: 'Hop on da Show',
+        audioSrc: 'Hop on da show.mp3',
+        imageSrc: 'khung17.gif'
+    },
+    {
+    title: 'Dreamland',
+        audioSrc: 'Miền mộng mị.mp3',
+        imageSrc: 'khung16.gif'
+    },
+    {
+    title: 'Just Another Lovely Day',
+        audioSrc: 'Một ngày chẳng nắng.mp3',
+        imageSrc: 'khung19.gif'
+    },
+    {
+    title: 'Dead Inside You',
+        audioSrc: 'Chết trong em.mp3',
+        imageSrc: 'khung11.gif'
+    },
+    
+
+
+
+
+
+
 ];
 
 function loadSongWithSlide(index, direction = 'next') {
@@ -125,3 +197,39 @@ audioPlayer.addEventListener('ended', function () {
     }
     loadSong(currentSongIndex);
 });
+const progressBar = document.getElementById('progress-bar');
+const currentTimeEl = document.getElementById('current-time');
+const durationEl = document.getElementById('duration');
+
+// Cập nhật thanh tiến trình mỗi khi nhạc chạy
+audioPlayer.addEventListener('timeupdate', () => {
+    const current = audioPlayer.currentTime;
+    const duration = audioPlayer.duration;
+
+    if (!isNaN(duration)) {
+        progressBar.max = Math.floor(duration);
+        progressBar.value = Math.floor(current);
+
+        currentTimeEl.textContent = formatTime(current);
+        durationEl.textContent = formatTime(duration);
+
+        updateProgressBarColor(current, duration);
+    }
+});
+
+// Tua bài hát khi kéo thanh tiến trình
+progressBar.addEventListener('input', () => {
+    audioPlayer.currentTime = progressBar.value;
+    updateProgressBarColor(progressBar.value, progressBar.max);
+});
+
+function formatTime(seconds) {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+}
+
+function updateProgressBarColor(value, max) {
+    const percent = (value / max) * 100;
+    progressBar.style.background = `linear-gradient(to right, #cb4cfb 0%, #cb4cfb ${percent}%, #ddd ${percent}%, #ddd 100%)`;
+}

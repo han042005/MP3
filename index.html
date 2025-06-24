@@ -23,6 +23,12 @@
             </div>
 
             <!-- Khung điều khiển -->
+            <div class="progress-container">
+                <span id="current-time">0:00</span>
+                <input type="range" id="progress-bar" value="0" step="1" min="0">
+                <span id="duration">0:00</span>
+            </div>
+
             <div class="control-panel">
                 <button class="control-button prev-button">
                     <img src="prev.png" alt="Prev">
@@ -34,7 +40,7 @@
                     <img src="next.png" alt="Next">
                 </button>
             </div>
-
+            
         </div>
     </div>
     <audio id="audio-player" src="Kawaikute Gomen.mp3"></audio>
